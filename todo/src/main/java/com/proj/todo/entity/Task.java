@@ -16,14 +16,15 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Temporal(TemporalType.DATE)
     private Date updatedDate;
+
     private String description;
 
     private String status;
 
     @Column(name = "userid")
-    private String userid;
+    private Long userid;
 }

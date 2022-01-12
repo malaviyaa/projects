@@ -13,10 +13,10 @@ import java.util.Date;
 @NoArgsConstructor
 @ToString
 public class TaskVO {
-    private Date updatedDate;
+
     private String description;
 
     private String status;
 
-    private String userid;
+    private Long userid;
 }

@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/address")
+@RequestMapping("/task")
 public class TaskController {
 
     @Autowired
     private TaskService taskService;
 
     @PostMapping("/add")
-    public void addAddress(@RequestBody TaskVO taskVO) {
-        //addressService.addAddress(addressVO);
+    public void addTask(@RequestBody TaskVO taskVO) {
+        taskService.addTask(taskVO);
+    }
+
+    @PostMapping("/remove")
+    public void removeTask(@RequestBody TaskVO taskVO) {
+        taskService.removeTask(taskVO.getUserid());
     }
 
 }
