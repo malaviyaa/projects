@@ -14,9 +14,10 @@ import java.util.Date;
 @ToString
 public class TaskVO {
 
+    private Long id;
     private String description;
 
-    private String status;
+    private boolean status;
 
     private Long userid;
 }

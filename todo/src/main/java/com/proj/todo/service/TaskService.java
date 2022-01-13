@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,14 +20,29 @@ public class TaskService {
     public void addTask(TaskVO task) {
         Task taskDb = new Task();
         taskDb.setDescription(task.getDescription());
-        taskDb.setStatus(task.getStatus());
+        taskDb.setStatus(task.isStatus());
         taskDb.setUpdatedDate(new Date());
         taskDb.setUserid(task.getUserid());
 
         taskRepo.save(taskDb);
     }
 
+    @Transactional
+    public void updateTask(Long taskid,Long userId,boolean status) {
+        Task taskDb = taskRepo.findById(taskid).get();
+        if(taskDb !=null && taskDb.getUserid() == userId) {
+            taskDb.setStatus(status);
+        }
+
+        taskRepo.save(taskDb);
+    }
+
     public void removeTask(Long id) {
         taskRepo.deleteById(id);
-}
+    }
+
+    public List<Task> findAll() {
+
+        return  taskRepo.findAll();
+    }
 }

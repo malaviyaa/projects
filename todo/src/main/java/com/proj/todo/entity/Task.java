@@ -23,7 +23,7 @@ public class Task {
 
     private String description;
 
-    private String status;
+    private boolean status;
 
     @Column(name = "userid")
     private Long userid;
