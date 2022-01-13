@@ -32,6 +32,7 @@ public class TaskService {
         Task taskDb = taskRepo.findById(taskid).get();
         if(taskDb !=null && taskDb.getUserid() == userId) {
             taskDb.setStatus(!taskDb.isStatus());
+            taskDb.setUpdatedDate(new Date());
         }
 
         taskRepo.save(taskDb);

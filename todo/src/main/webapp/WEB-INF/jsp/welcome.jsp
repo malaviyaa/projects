@@ -20,7 +20,8 @@
 
            <c:forEach items="${todos}" var="todo">
            <p>
-           ${todo.description}
+
+           ${todo.description} ${todo.updatedDate}
            <c:if test = "${todo.status == true}">
            <input type="checkbox" checked />
             </c:if>
