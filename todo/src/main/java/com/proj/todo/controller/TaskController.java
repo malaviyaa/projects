@@ -47,13 +47,13 @@ public class TaskController {
         return mav;
     }
 
-    @GetMapping("/update/{taskId}/{status}")
+    @GetMapping("/update/{taskId}/{userid}")
     public ModelAndView updateTask(@PathVariable(value="taskId") String taskId,
-                                   @PathVariable(value="userid") String userid,
-                                   @PathVariable(value="status") boolean status) {
+                                   @PathVariable(value="userid") String userid
+                                 ) {
         Long id = Long.parseLong(taskId);
         Long uid = Long.parseLong(userid);
-        taskService.updateTask(id,uid,status);
+        taskService.updateTask(id,uid);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("welcome");
         List<Task> todos = taskService.findAll();

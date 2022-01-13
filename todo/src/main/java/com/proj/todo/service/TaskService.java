@@ -28,10 +28,10 @@ public class TaskService {
     }
 
     @Transactional
-    public void updateTask(Long taskid,Long userId,boolean status) {
+    public void updateTask(Long taskid,Long userId) {
         Task taskDb = taskRepo.findById(taskid).get();
         if(taskDb !=null && taskDb.getUserid() == userId) {
-            taskDb.setStatus(status);
+            taskDb.setStatus(!taskDb.isStatus());
         }
 
         taskRepo.save(taskDb);

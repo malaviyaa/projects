@@ -21,8 +21,13 @@
            <c:forEach items="${todos}" var="todo">
            <p>
            ${todo.description}
-           <input type="checkbox" value = "${todo.status}" />
-
+           <c:if test = "${todo.status == true}">
+           <input type="checkbox" checked />
+            </c:if>
+             <c:if test = "${todo.status == false}">
+                 <input type="checkbox"  />
+              </c:if>
+               <a href="/update/${todo.id}/${todo.userid}">update</a>
                          <a href="/remove/${todo.id}">Remove</a>
             </p>
            </c:forEach>
