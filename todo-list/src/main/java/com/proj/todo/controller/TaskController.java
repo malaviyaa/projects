@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/todo")
+@CrossOrigin
 public class TaskController {
 
     @Autowired
