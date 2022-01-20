@@ -3,6 +3,7 @@ package com.proj.todo.service;
 import com.proj.todo.entity.Task;
 import com.proj.todo.repository.TaskRepo;
 import com.proj.todo.vo.TaskVO;
+import lombok.extern.slf4j.Slf4j;
 import lombok.extern.slf4j.XSlf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,15 +16,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class TaskService {
-    Logger logger = LoggerFactory.getLogger(TaskService.class);
+
     @Autowired
     private TaskRepo taskRepo;
 
     @Transactional
     public void addTask(TaskVO task) {
         try {
-            logger.debug(" isnide save ");
+            log.debug(" isnide save ");
             Task taskDb = new Task();
             taskDb.setDescription(task.getDescription());
             taskDb.setStatus(task.isStatus());
@@ -31,7 +33,7 @@ public class TaskService {
             taskDb.setUserid(task.getUserid());
             taskRepo.save(taskDb);
         } catch(Exception e) {
-            logger.error("error while adding todo "+e.getMessage());
+            log.error("error while adding todo "+e.getMessage());
         }
     }
 
@@ -46,7 +48,7 @@ public class TaskService {
 
             taskRepo.save(taskDb);
         } catch(Exception e) {
-            logger.error("error while updating todo "+e.getMessage());
+            log.error("error while updating todo "+e.getMessage());
         }
     }
 
@@ -55,7 +57,7 @@ public class TaskService {
         try {
         taskRepo.deleteById(id);
         } catch(Exception e) {
-            logger.error("error while removing todo "+e.getMessage());
+            log.error("error while removing todo "+e.getMessage());
         }
     }
 
