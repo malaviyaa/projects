@@ -4,12 +4,14 @@ import com.proj.todo.entity.Task;
 import com.proj.todo.service.TaskService;
 import com.proj.todo.vo.TaskVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+
+/**
+ * crossOrigin was required
+ * as angular app was not able to call the controller
+ * */
 
 @RestController
 @RequestMapping("/todo")
