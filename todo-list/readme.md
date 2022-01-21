@@ -4,21 +4,15 @@
 mvn clean install && mvn spring-boot:run
 
 ## Why certain approaches were used, why others were not selected
-Did not create UI as separate microservice due to time constraint.
-Ideal way would have been to create api and UI as a separate springboot and angular projects.
-so both could be managed and deployed independent of each other.
+Created spring boot microservice so that it could be deployed and manged independently.
+As it would be loosely coupled process to integrate with ui or any other app over REST
 
 ##  Any design patterns used
-mvc and dao patterns are used. repositories as DAO's and controller spring , view jsp and model as entities alongwith Spring mvc is used.
+DAO patterns are used for repositories and Inversion of Control to Autowire service.
 
 ## Anything extra you would have done give more time
-exception handling.
-separate ui logic.
-logging.
-unit tests using mockito.
-multiple user session management.
+Multiple user session management with Spring security.
+Input validation
 
 # url 
-http://localhost:8080/
-username - test
-pass - pwd123
+http://localhost:8080/todo/
