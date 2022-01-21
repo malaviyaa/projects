@@ -4,6 +4,7 @@
 mvn clean install && mvn spring-boot:run
 
 ## Why certain approaches were used, why others were not selected
+H2 In memory Data base is used to persist all changes.
 Created spring boot microservice so that it could be deployed and manged independently.
 As it would be loosely coupled process to integrate with ui or any other app over REST
 
